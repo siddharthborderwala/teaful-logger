@@ -1,6 +1,6 @@
 {
   "name": "fragstore-logger",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Logger for fragstore",
   "keywords": [
     "react",
@@ -12,11 +12,21 @@
   "type": "module",
   "author": "Siddharth Borderwala",
   "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/siddharthborderwala/fragstore-logger.git"
+  },
   "source": "src/index.js",
   "exports": {
+    "require": "./dist/index.js",
     "default": "./dist/index.modern.js"
   },
   "main": "./dist/index.cjs",
+  "umd:main": "dist/index.umd.js",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "scripts": {
@@ -26,5 +36,8 @@
   "devDependencies": {
     "eslint": "^8.1.0",
     "microbundle": "^0.14.1"
+  },
+  "bugs": {
+    "url": "https://github.com/siddharthborderwala/fragstore-logger/issues"
   }
 }
