@@ -1,0 +1,30 @@
+{
+  "name": "fragstore-logger",
+  "version": "0.0.1",
+  "description": "Logger for fragstore",
+  "keywords": [
+    "react",
+    "preact",
+    "state",
+    "state management",
+    "logger"
+  ],
+  "type": "module",
+  "author": "Siddharth Borderwala",
+  "license": "MIT",
+  "source": "src/index.js",
+  "exports": {
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "microbundle": "^0.14.1"
+  }
+}
