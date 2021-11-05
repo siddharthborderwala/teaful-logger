@@ -2,6 +2,14 @@
 
 A simple and minimal logger for [Fragstore](https://github.com/aralroca/fragstore/) state management library.
 
+## Installing
+
+``sh
+yarn add -D fragstore-logger
+# or
+npm install --save-dev fragstore-logger
+``
+
 ## How to use?
 
 ```js
@@ -27,7 +35,7 @@ const initialStore = {
   age: 21
 };
 
-function onAfterUpdate({ path, value, prevValue, getStore }) {
+function onAfterUpdate({ prevStore, store }) {
   // do something here
 }
 
