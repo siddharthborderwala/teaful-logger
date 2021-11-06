@@ -1,20 +1,20 @@
-# Fragstore Logger
+# Teaful Logger
 
-A simple and minimal logger for [Fragstore](https://github.com/aralroca/fragstore/) state management library.
+A simple and minimal logger for [Teaful](https://github.com/teafuljs/teaful/) state management library.
 
 ## Installing
 
-``sh
-yarn add -D fragstore-logger
+```sh
+yarn add -D teaful-logger
 # or
-npm install --save-dev fragstore-logger
-``
+npm install --save-dev teaful-logger
+```
 
 ## How to use?
 
 ```js
-import createStore from 'fragstore';
-import logger from 'fragstore-logger';
+import createStore from 'teaful';
+import logger from 'teaful-logger';
 
 const initialStore = {
   name: 'Sid',
@@ -24,11 +24,11 @@ const initialStore = {
 const { useStore } = createStore(initialStore, logger);
 ```
 
-If you want to use more than one afterUpdate listeners for fragstore:
+If you want to use more than one afterUpdate listeners for the store:
 
 ```js
-import createStore from 'fragstore';
-import logger from 'fragstore-logger';
+import createStore from 'teaful';
+import logger from 'teaful-logger';
 
 const initialStore = {
   name: 'Sid',
@@ -39,12 +39,22 @@ function onAfterUpdate({ prevStore, store }) {
   // do something here
 }
 
-// this function will run all the update listeners
-const combine = (...functions) => (args) => {
+// this function will run all the update listeners passed in an array called functions
+const combine = (functions) => (args) => {
   functions.forEach(fn => {
     fn(args);
   });
+};
+
+const listeners = [onAfterUpdate];
+
+// only using logger in dev and test mode
+if (process.env.NODE_ENV !== 'production') {
+  listeners.push(logger);
 }
 
-const { useStore } = createStore(initialStore, combine(onAfterUpdate, logger));
+const { useStore } = createStore(
+  initialStore,
+  combine(listeners)
+);
 ```
