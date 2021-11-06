@@ -14,7 +14,7 @@ npm install --save-dev teaful-logger
 
 ```js
 import createStore from 'teaful';
-import logger from 'teaful-logger';
+import { logger } from 'teaful-logger';
 
 const initialStore = {
   name: 'Sid',
@@ -24,11 +24,26 @@ const initialStore = {
 const { useStore } = createStore(initialStore, logger);
 ```
 
+Sometimes, there may be a lot of updates, causing confusion which log came from where. For this kind of a situation, we have the `namedLogger` function:
+
+```js
+import { namedLogger } from 'teaful-logger';
+
+const scopedLogger = namedLogger('some-name');
+
+const { useStore } = createStore(
+  initialStore,
+  scopedLogger
+);
+```
+
+This is show logs including the name of the logger.
+
 If you want to use more than one afterUpdate listeners for the store:
 
 ```js
 import createStore from 'teaful';
-import logger from 'teaful-logger';
+import { logger } from 'teaful-logger';
 
 const initialStore = {
   name: 'Sid',
