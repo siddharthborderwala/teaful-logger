@@ -35,7 +35,8 @@
   },
   "devDependencies": {
     "eslint": "^8.1.0",
-    "microbundle": "^0.14.1"
+    "microbundle": "^0.14.1",
+    "prettier": "^2.4.1"
   },
   "bugs": {
     "url": "https://github.com/siddharthborderwala/teaful-logger/issues"
